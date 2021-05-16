@@ -6,7 +6,7 @@ const { listForm } = require("../../../Laboratorios/counter_app_example-master/v
 function getTitle(){
     return chalk.green(
         figlet.textSync(
-            "Tip App" ,
+            "Tip Calculator App" ,
             {
                 horizontalLayout: "full",
                 font: "Nancyj-Underlined"
