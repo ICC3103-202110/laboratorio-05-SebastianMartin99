@@ -33,13 +33,13 @@ function inputForm(model){
     const tipMessage = "Tip(%)?"
     return inquirer.prompt([
         {
-            name: "Bill Amount?",
+            name: "Bill",
             type: "input",
             billmessage: billMessage,
             default: input,
         },
         {
-            name: "Tip(%)?",
+            name: "Percentage",
             type: "input",
             tipMessage: tipMessage,
             default: input,

@@ -9,8 +9,9 @@ async function app(state, update, view){
         console.clear()
         console.log(title)
         printTable(table)
-        const {input} = await inputForm(model)
-        const updatedModel = update(input, model)
+        const {Bill, Percentage} = await inputForm(model)
+        console.log(Bill, Percentage)
+        const updatedModel = update(Bill, Percentage, model)
         state = {
             ...state,
             model: updatedModel,
