@@ -4,7 +4,7 @@ function calculateTip(billAmount, percentage){
 
 function sum(billAmount, percentage){
     const x = parseInt(billAmount)*parseInt(percentage)/100
-    return +parseInt(billAmount)+x
+    return parseInt(billAmount)+x
 }
 
 function update(Bill, Percentage, model){
