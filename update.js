@@ -1,19 +1,18 @@
-function calculateTip(percentage){
-    return
+function calculateTip(billAmount, percentage){
+    return parseInt(billAmount)*parseInt(percentage)/100
 }
 
-function sum(billAmount, percentage){
-    return
+function sum(billAmount){
+    const newTip = calculateTip(billAmount, percentage)
+    return parseInt(billAmount)+newTip
 }
 
 function update(input, model){
     const {billAmount} = model
     const {percentage} = model
-    const {tip} = model
-    const {total} = model
     const newBillAmount = billAmount
     const newPercentage = percentage
-    const newTip = calculateTip(percentage)
+    const newTip = calculateTip(billAmount, percentage)
     const newTotal = sum(billAmount, percentage)
     return {
         ...model,
