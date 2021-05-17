@@ -8,7 +8,6 @@ function getTitle(){
             "Tip Calculator App" ,
             {
                 horizontalLayout: "full",
-                verticalLayout: "full",
                 font: "Nancyj-Underlined"
             }
         )
@@ -21,15 +20,15 @@ function getTable(model){
     const{tip} = model
     const{total} = model
     return[
-        {Bill_Amount$: billAmount,
-        Percentage: percentage,
-        Tip$: tip,
-        Total$: total}    
+        {"Bill Amount": "$"+billAmount,
+        "Tip (%)": percentage+"%",
+        Tip: "$"+tip,
+        Total: "$"+total}    
     ]
 }
 
 function inputForm(model){
-    const {input} = model
+    const {Bill, Percentage} = model
     const billMessage = "Bill Amount?"
     const tipMessage = "Tip(%)?"
     return inquirer.prompt([
@@ -37,7 +36,7 @@ function inputForm(model){
             name: "Bill",
             type: "input",
             billmessage: billMessage,
-            default: input,
+            default: Bill,
             validate: function(value){
                 if (isNaN(value)){
                     return "Erase and enter a number"
@@ -50,7 +49,7 @@ function inputForm(model){
             name: "Percentage",
             type: "input",
             tipMessage: tipMessage,
-            default: input,
+            default: Percentage,
             validate: function(value){
                 if (isNaN(value)){
                     return "Erase and enter a number"
