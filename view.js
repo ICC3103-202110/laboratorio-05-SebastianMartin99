@@ -1,7 +1,6 @@
 const figlet = require("figlet")
 const chalk = require("chalk")
 const inquirer = require("inquirer")
-const { listForm } = require("../../../Laboratorios/counter_app_example-master/view")
 
 function getTitle(){
     return chalk.green(
@@ -21,7 +20,7 @@ function getTable(model){
     const{tip} = model
     const{total} = model
     return[
-        {BillAmount: billAmount},
+        {Bill_Amount: billAmount},
         {Percentage: percentage},
         {Tip: tip},
         {Total: total}    
@@ -34,47 +33,40 @@ function inputForm(model){
     const tipMessage = "Tip(%)?"
     return inquirer.prompt([
         {
-            name: "billAmount",
+            name: "Bill Amount?",
             type: "input",
             billmessage: billMessage,
             default: input,
-            validate: function(value){
-                if(value == int){
-                    return true
-                } else {
-                    return "Bill Amount?"
-                }
-            }
         },
         {
-            name: "Tip",
+            name: "Tip(%)?",
             type: "input",
-            billmessage: billMessage,
             tipMessage: tipMessage,
             default: input,
         }
     ])
 }
 
-//function listForm(model){
- //   const {input} = model
-   // const billMessage = "Bill Amount?"
-    //const tipMessage = "Tip(%)?" 
-    //return inquirer.prompt([
-     ////     name: "billAmount",
-         //   type: "list",
-           // billMessage: billMessage,
-           // default: input
-        //},
-        //{
-          //  name: "Tip",
-            //type: "list",
-            //tipMessage: tipMessage,
-            //default: input
-        //}
-    //])
+function listForm(model){
+    const {input} = model
+    const billMessage = "Bill Amount?"
+    const tipMessage = "Tip(%)?" 
+    return inquirer.prompt([
+        {
+            name: "billAmount",
+            type: "list",
+            billMessage: billMessage,
+            default: input
+        },
+        {
+            name: "Tip",
+            type: "list",
+            tipMessage: tipMessage,
+            default: input
+        }
+    ])
 
-//}
+}
 
 function view(model){
     return {
@@ -86,5 +78,5 @@ function view(model){
 module.exports = {
     view,
     inputForm,
-    //listForm
+    listForm
 }
