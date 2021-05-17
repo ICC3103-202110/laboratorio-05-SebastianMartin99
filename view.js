@@ -37,12 +37,26 @@ function inputForm(model){
             type: "input",
             billmessage: billMessage,
             default: input,
+            validate: function(value){
+                if (isNaN(value)){
+                    return "Erase and enter a number"
+                }else{
+                    return true
+                }
+            }
         },
         {
             name: "Percentage",
             type: "input",
             tipMessage: tipMessage,
             default: input,
+            validate: function(value){
+                if (isNaN(value)){
+                    return "Erase and enter a number"
+                }else{
+                    return true
+                }
+            }
         }
     ])
 }
