@@ -8,6 +8,7 @@ function getTitle(){
             "Tip Calculator App" ,
             {
                 horizontalLayout: "full",
+                verticalLayout: "full",
                 font: "Nancyj-Underlined"
             }
         )
@@ -20,10 +21,10 @@ function getTable(model){
     const{tip} = model
     const{total} = model
     return[
-        {Bill_Amount: billAmount},
-        {Percentage: percentage},
-        {Tip: tip},
-        {Total: total}    
+        {Bill_Amount$: billAmount,
+        Percentage: percentage,
+        Tip$: tip,
+        Total$: total}    
     ]
 }
 
